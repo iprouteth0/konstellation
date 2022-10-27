@@ -1,0 +1,18 @@
+
+## Change to local konstellation repo folder
+cd ~/konstellaion
+## update repo
+git pull origin master
+##retreive new version tags
+git fetch --tags
+## chexkout upgrade version
+git checkout v0.6.0
+## Build binary
+make build
+## create cosmovisor folder structure and copy binary into corrext location
+
+mkdir ~/.knstld/cosmovisor/upgrades/v0.45/bin -p
+cp build/knstld ~/.knstld/cosmovisor/upgradea/v0.45/bin
+
+## Some chains have needed to add 'iavl-disable-fastnode = true' into config/app.toml just before the Telemetry section.  This may also be required for Konstellation
+
